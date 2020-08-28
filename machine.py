@@ -1,3 +1,5 @@
+from verification import verification
+
 money = 78
 correct_work_id = ""
 pencils = 5
@@ -54,7 +56,7 @@ def imposter():
     print("GEt OuT U IMpoSTER!!!!!!")
 # more useful functions
 def buy():
-    item = input("Whatcha' wanna buy? (1 - pencils, 2 - crackers, 3 - pocket notebooks, 4 - toffees, 5 - juice boxes(pls use the numbers, u don't have type the words))")
+    item = input("Whatcha' wanna buy? (1 - pencils, 2 - crackers, 3 - pocket notebooks, 4 - toffees, 5 - juice boxes, back - to main menu)(pls use the numbers, u don't have type the words))")
     if item == "1":
         if pencils == 0:
             not_enough()
@@ -109,26 +111,7 @@ def buy():
     else:
         print("Pls choose one of the given options, I can't understand what u r saying...")
 # functions for workers
-def verification():
-    
-    print("I need to verify that u r a worker and not some... some bad guy")
-    userid = input("Pls input ur username: ")
-    workid = input("Pls input ur (work) card number:")
 
-    if userid == "Sara":
-        global correct_work_id
-        print("Okay...ur name matches to one of the workers")
-        if userid == "Sara" :
-            global correct_work_id
-            correct_work_id = "90638652"
-            if workid != correct_work_id:
-                imposter()
-            else:
-                print("Oki u can pass")
-                global boolean
-                boolean = True
-    else:
-        imposter()
 def refill():
     verification()
     if boolean == False:
