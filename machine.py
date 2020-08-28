@@ -8,7 +8,7 @@ pkt_notes = 5
 boolean = False
 
 # Functions for the customer
-def objects():
+def obj6():
     global pencils
     global juice 
     global crackers
@@ -162,7 +162,7 @@ while True:
     elif action == "take":
         take()
     elif action == "objects":
-        objects()
+        obj6()
     elif action == "how to play":
         introduce_the_game()
     elif action == "exit":
