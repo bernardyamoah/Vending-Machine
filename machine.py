@@ -135,7 +135,6 @@ def refill():
         print("Sorry can't grant access...U iMpOsTeR!!!")
         pass
     elif boolean == True:
-        print("Sure! U can go.")
         juice2 = int(input("Write how many juice boxes u wanna refill :D :"))
         crackers2 = int(input("Write how many packs of crackers u wanna give :D: "))
         toffee2 = int(input("Write how many toffees u wanna refill :D :"))
@@ -162,7 +161,7 @@ while True:
         refill()
     elif action == "take":
         take()
-    elif action == "remaining":
+    elif action == "objects":
         objects()
     elif action == "how to play":
         introduce_the_game()
