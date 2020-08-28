@@ -1,10 +1,11 @@
-money = 0
-
+money = 78
+correct_work_id = ""
 pencils = 5
 juice = 5
 crackers = 5
 toffees = 10
 pkt_notes = 5
+boolean = False
 
 # Functions for the customer
 def objects():
@@ -103,25 +104,69 @@ def buy():
                 not_enough()
             elif qty_j <= juice:
                 change_qty(qty_j*15, 0, 0, 0, qty_j, 0)
+    elif item == "back":
+        pass
     else:
         print("Pls choose one of the given options, I can't understand what u r saying...")
 # functions for workers
 def verification():
+    
     print("I need to verify that u r a worker and not some... some bad guy")
     userid = input("Pls input ur username: ")
-    # workid = input("Pls input ur (work) card number:")
-    # correct_work_id = ""
-    if userid == "Adam" or userid == "Sara":
-        print("Okay...ur name matches to one of the workers")
-    if userid == "Adam":
-        global correct_work_id
-        correct_work_id = "15568947"
-    elif userid == "Sara":
-        global correct_work_id
-        correct_work_id = "9063865y"
-    
-    else:
-        print("")
+    workid = input("Pls input ur (work) card number:")
 
+    if userid == "Sara":
+        global correct_work_id
+        print("Okay...ur name matches to one of the workers")
+        if userid == "Sara" :
+            global correct_work_id
+            correct_work_id = "90638652"
+            if workid != correct_work_id:
+                imposter()
+            else:
+                print("Oki u can pass")
+                global boolean
+                boolean = True
+    else:
+        imposter()
+def refill():
+    verification()
+    if boolean == False:
+        print("Sorry can't grant access...U iMpOsTeR!!!")
+        pass
+    elif boolean == True:
+        print("Sure! U can go.")
+        juice2 = int(input("Write how many juice boxes u wanna refill :D :"))
+        crackers2 = int(input("Write how many packs of crackers u wanna give :D: "))
+        toffee2 = int(input("Write how many toffees u wanna refill :D :"))
+        pkt_notes2 = int(input("Write how many pocket notebooks u wanna refill :D "))
+        pencils2 = int(input("Write how many pencils u wanna refill :D :"))
+        change_qty(0, -pencils2, -pkt_notes2, -toffee2, -juice2, -crackers2)
 def take():
-    pass
+    verification()
+    if boolean == False:
+        print("Sorry can't grant access...U iMpOsTeR!!!")
+    elif boolean == True:
+        print("Sure! U can take the money!")
+        if money > 0:
+            print(f'I gave u ${money} :D')
+            change_qty(-money, 0, 0, 0, 0, 0)
+def do_smt():
+    choose_action = input("Write action (buy, objects, refill, take, exit)(write 'how to play' for instructions):") 
+    return choose_action
+while True:
+    action = do_smt()
+    if action == "buy":
+        buy()
+    elif action == "refill":
+        refill()
+    elif action == "take":
+        take()
+    elif action == "remaining":
+        objects()
+    elif action == "how to play":
+        introduce_the_game()
+    elif action == "exit":
+        print("Bye! Hope u had a good expirience! (unless ur an ImPoStEr trying to take money!!!)")
+        break
+    
