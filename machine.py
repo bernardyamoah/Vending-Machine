@@ -1,4 +1,4 @@
-from verification import verification
+
 
 money = 78
 correct_work_id = ""
@@ -111,6 +111,29 @@ def buy():
     else:
         print("Pls choose one of the given options, I can't understand what u r saying...")
 # functions for workers
+def verification():
+    
+    print("I need to verify that u r a worker and not some... some bad guy")
+    userid = input("Pls input ur username: ")
+    workid = input("Pls input ur (work) card number:")
+
+    if userid == "Sara":
+        global correct_work_id
+        print("Okay...ur name matches to one of the workers")
+        if userid == "Sara" :
+            global correct_work_id
+            correct_work_id = "90638652"
+            if workid != correct_work_id:
+                imposter()
+            else:
+                print("Oki ur workid matches too. U can pass")
+                print("""
+                And hi Sara!
+                """)
+                global boolean
+                boolean = True
+    else:
+        imposter()
 
 def refill():
     verification()
