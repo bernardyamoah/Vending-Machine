@@ -32,7 +32,7 @@ def introduce_the_game():
     'Objects' tells u how many items and in what qty its loaded.
     'Buy' lets u buy an item.
     
-    If u r a worker, then confirm ur id and name by caling the 'take' or 'refill' function
+    If you are a worker, then confirm ur id and name by calling the 'take' or 'refill' function
     to take the money or refill the vending machine. Enjoy! :D''')
 def change_qty(money1, pencil1, pkt_notes1, toffee1, juice1, crackers1):
     global pencils
